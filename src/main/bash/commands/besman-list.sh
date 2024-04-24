@@ -6,14 +6,14 @@ local flag=$1
 local env sorted_list
 
 # For listing playbooks
-if [[ ( -n $flag ) && ( ( $flag == "--playbook" ) || ( $flag == "-P" ) ) ]]; then
+if [[ ( -n $flag ) && ( $flag == "-p" ) ]]; then
 
     __besman_list_playbooks
 
-elif [[ ( -n $flag ) && ( $flag == "--role" ) ]]; then
+elif [[ ( -n $flag ) && ( $flag == "-r" ) ]]; then
 
     __besman_list_roles
-elif [[ ( -n $flag ) && ( ( $flag == "--environment" ) || ( $flag == "-env" ) ) ]]; then
+elif [[ ( -n $flag ) && ( $flag == "-e" ) ]]; then
 
     __besman_list_envs
 

@@ -10,6 +10,7 @@ export BESMAN_SERVICE="https://raw.githubusercontent.com"
 # BESMAN_DIST_BRANCH=${BESMAN_DIST_BRANCH:-REL-${BESMAN_VERSION}}
 
 BESMAN_NAMESPACE="sudhirverma"
+echo $BESMAN_NAMESPACE
 BESMAN_VERSION="${BESMAN_VERSION:-0.1.4}"
 
 BESMAN_ENV_REPOS="$BESMAN_NAMESPACE/besecure-ce-env-repo"
@@ -23,6 +24,8 @@ fi
 
 echo "Checking version number"
 release=$(curl -s --insecure --silent "https://api.github.com/repos/$BESMAN_NAMESPACE/BeSman/releases" | jq -r '.[].tag_name' | grep "^$BESMAN_VERSION$")
+
+echo "release = $release"
 if [[ -z $release ]] 
 then
     echo "Version $release is not a valid version of $BESMAN_NAMESPACE/BeSman"
